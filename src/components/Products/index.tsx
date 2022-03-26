@@ -16,17 +16,6 @@ const Products: React.FC = () => {
 
   return (
     <Container>
-        {/* <ScrollView 
-            showsHorizontalScrollIndicator={false}
-        >
-            {
-                category?.map(item => (
-                    <Container>
-                        <Image source={{ uri: formatUrl(item.image) }} />
-                    </Container>
-                ))
-            }
-        </ScrollView> */}
         <FlatList
           data={category}
           keyExtractor={item => item.image}
