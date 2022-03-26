@@ -3,6 +3,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Search from '../../assets/search';
 import ShoppingCart from '../../assets/shopping_cart';
 import Categories from '../../components/Categories';
+import Products from '../../components/Products';
 import { Container, Header, InputText, Right, Text, Title } from './style';
 
 // import { Container } from './styles';
@@ -29,6 +30,7 @@ const Dashboard: React.FC = () => {
           <Text>Categorias</Text>
           <Categories/>
           <Text>Produtos</Text>
+          <Products/>
       </Container>
   )
 }

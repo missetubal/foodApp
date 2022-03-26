@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Image, ScrollView } from './style';
+import { Container, Image } from './style';
 import api from '../../service/api';
+import { ScrollView } from 'react-native';
 
 // import { Container } from './styles';
 
@@ -16,7 +17,10 @@ const Categories: React.FC = () => {
     const formatUrl = (url: String) => url.replace('http', 'https');
 
     return (
-        <ScrollView horizontal >
+        <ScrollView 
+            horizontal
+            showsHorizontalScrollIndicator={false}
+        >
             {
                 category?.map(item => (
                     <Container>
