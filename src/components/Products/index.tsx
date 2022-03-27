@@ -6,11 +6,13 @@ import api from '../../service/api';
 import { Container, Content, Image, Text} from './styles';
 
 const Products: React.FC = () => {
+  // console.log(item)
+  
   const navigation = useNavigation();
-  const [category, setCategory] = useState([]);
+  const [item, setItem] = useState([]);
     useEffect(() => {
         api.get('products')
-            .then(data => setCategory(data.data))
+            .then(data => setItem(data.data))
             .catch(error => console.log(error))
     }, [])
     const formatUrl = (url: String) => url.replace('http', 'https');
@@ -19,19 +21,27 @@ const Products: React.FC = () => {
   return (
     <Container>
         <FlatList
-          data={category}
+          data={item}
           keyExtractor={item => item.id}
           numColumns={2}
           renderItem={({ item }) => {
+            console.log (item)
             return (
                 <Content>
                     <TouchableOpacity
-                      onPress={() => navigation.navigate('Details')}
+                      onPress={() => {
+                        navigation.navigate('Details', {
+                          name: item.name,
+                          image: item.image,
+                          description:item.description,
+                          price: item.price
+                        });
+                      }}
                     >
-                      <Image source={{ uri: formatUrl(item.image) }} />
-                      <Text>{item.name}</Text>
+                      <Image source={{ uri: (formatUrl(item.image)) }} />
+                      <Text>{(item.name)}</Text>
                     </TouchableOpacity>
-                    <Text>R$ {formatPrice(item.price)}</Text>
+                    <Text>R$ {formatPrice((item.price))}</Text>
                 </Content>
             );
           }}
