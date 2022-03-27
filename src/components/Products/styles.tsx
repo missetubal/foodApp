@@ -13,7 +13,7 @@ export const Image = styled.Image`
     border-radius: 10px;
 `;
 
-export const Content = styled.TouchableOpacity`
+export const Content = styled.View`
     flex-direction: column;
     background: #FFFFFF;
     box-shadow: 6px 6px 20px rgba(154, 159, 174, 0.2);
@@ -22,7 +22,7 @@ export const Content = styled.TouchableOpacity`
     margin-right: 20px;
 `;
 
-export const Text = styled.Text`
+export const Text = styled.Text `
     margin-left: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px;    
 `;

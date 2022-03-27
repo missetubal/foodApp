@@ -1,11 +1,12 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react';
-import { FlatList, ScrollView } from 'react-native';
+import { FlatList} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import api from '../../service/api';
-import { Container, Content, Image, Text } from './styles';
-
-// import { Container } from './styles';
+import { Container, Content, Image, Text} from './styles';
 
 const Products: React.FC = () => {
+  const navigation = useNavigation();
   const [category, setCategory] = useState([]);
     useEffect(() => {
         api.get('products')
@@ -24,8 +25,12 @@ const Products: React.FC = () => {
           renderItem={({ item }) => {
             return (
                 <Content>
-                    <Image source={{ uri: formatUrl(item.image) }} />
-                    <Text>{item.name}</Text>
+                    <TouchableOpacity
+                      onPress={() => navigation.navigate('Details')}
+                    >
+                      <Image source={{ uri: formatUrl(item.image) }} />
+                      <Text>{item.name}</Text>
+                    </TouchableOpacity>
                     <Text>R$ {formatPrice(item.price)}</Text>
                 </Content>
             );
