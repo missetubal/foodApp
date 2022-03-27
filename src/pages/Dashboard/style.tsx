@@ -28,7 +28,7 @@ export const Header = styled.View`
     margin-bottom: 40px;
 `;
 
-export const Right = styled.View`
+export const Right = styled.TouchableOpacity`
     width: 40px;
     height: 40px;
     background-color: #FFFFFF;

@@ -25,6 +25,7 @@ export const Image = styled.Image`
 
 export const AddItens = styled.View`
     flex-direction: row;
+    justify-content: space-between;
 `;
 
 export const Left = styled.View`
@@ -32,7 +33,24 @@ export const Left = styled.View`
 `;
 
 export const Right = styled.View`
-    
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+`;
+
+export const Button = styled.TouchableOpacity`
+    background-color: #FD7F20;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 20px rgba(154, 159, 174, 0.2);
+    align-items: center;
+    justify-content: center;
+`;
+
+export const Value = styled.Text`
+    margin-left: 3px;
+    margin-right: 3px;
 `;
 
 export const AddToCart = styled.TouchableOpacity`
