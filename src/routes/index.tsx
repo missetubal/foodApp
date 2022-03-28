@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Details from '../pages/Details';
 import Dashboard from '../pages/Dashboard';
 import Home from '../pages/Home';
+import Cart from '../pages/Cart';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,10 @@ const Routes: React.FC = () => {
                 <Stack.Screen
                 name='Details'
                 component={Details}
+                />
+                <Stack.Screen
+                name='Cart'
+                component={Cart}
                 />
           </Stack.Navigator>
 
