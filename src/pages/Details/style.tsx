@@ -18,8 +18,8 @@ export const Text = styled.Text`
 
 export const Image = styled.Image`
   margin-top: 42px;
-  /* width: 350px; */
-  background-color: red;
+  width: 350px;
+  height: 300px;
 `;
 
 export const AddItens = styled.View`
