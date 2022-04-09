@@ -17,13 +17,13 @@ const Categories: React.FC<CategoriesProps> = props => {
       .catch(error => console.log(error));
   }, []);
   const formatUrl = (url: String) => url.replace('http', 'https');
-  console.log(category);
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {info.map(item => (
         <Container
           onPress={() => {
             props.onPress(item.category);
+            // console.log(item.category);
           }}>
           <Image resizeMode="stretch" source={{uri: formatUrl(item.image)}} />
         </Container>

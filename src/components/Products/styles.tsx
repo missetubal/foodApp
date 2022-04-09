@@ -9,7 +9,6 @@ export const Image = styled.Image`
   margin-right: 5px;
   width: 155px;
   height: 103px;
-  margin-bottom: 20px;
   border-radius: 10px;
 `;
 
@@ -26,4 +25,17 @@ export const Content = styled.View`
 export const Text = styled.Text`
   margin-left: 10px;
   margin-bottom: 10px;
+  max-width: 123px;
+`;
+
+export const Right = styled.View``;
+
+export const Left = styled.TouchableOpacity`
+  margin-right: 15px;
+`;
+
+export const InfoContent = styled.View`
+  justify-content: space-between;
+  flex-direction: row;
+  margin-top: 20px;
 `;
