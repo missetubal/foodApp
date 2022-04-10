@@ -25,7 +25,7 @@ export const Content = styled.View`
 export const Text = styled.Text`
   margin-left: 10px;
   margin-bottom: 10px;
-  max-width: 123px;
+  max-width: 115px;
 `;
 
 export const Right = styled.View``;

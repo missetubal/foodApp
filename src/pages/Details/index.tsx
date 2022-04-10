@@ -16,7 +16,9 @@ import {
   Button,
   AddToCart,
   TextButton,
+  Heart,
 } from './style';
+import Favorite from '../../assets/favorite';
 
 // import { Container } from './styles';
 
@@ -35,6 +37,9 @@ const Details: React.FC = ({route}) => {
           <LeftArrow />
         </TouchableOpacity>
         <Text>{route.params.name}</Text>
+        <Heart>
+          <Favorite />
+        </Heart>
       </Header>
       <Image source={{uri: formatUrl(route.params.image)}} />
       <Text style={{marginBottom: 10}}>{route.params.description}</Text>

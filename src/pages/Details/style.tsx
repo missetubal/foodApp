@@ -20,6 +20,8 @@ export const Image = styled.Image`
   margin-top: 42px;
   width: 350px;
   height: 300px;
+  margin-bottom: 24px;
+  border-radius: 10px;
 `;
 
 export const AddItens = styled.View`
@@ -56,6 +58,10 @@ export const AddToCart = styled.TouchableOpacity`
   background-color: #fd7f20;
   border-radius: 10px;
   margin-top: 27px;
+  position: absolute;
+  bottom: -200px;
+  width: 100%;
+  left: 20px;
 `;
 
 export const TextButton = styled.Text`
@@ -64,4 +70,9 @@ export const TextButton = styled.Text`
   font-weight: 700;
   line-height: 21px;
   margin: 12px 0px;
+`;
+
+export const Heart = styled.TouchableOpacity`
+  position: absolute;
+  right: 15px;
 `;
