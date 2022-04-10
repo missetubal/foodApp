@@ -1,38 +1,35 @@
-import React, { useState } from 'react';
-import { ScrollView } from 'react-native-gesture-handler';
-import Search from '../../assets/search';
+import React, {useState} from 'react';
 import ShoppingCart from '../../assets/shopping_cart';
 import Categories from '../../components/Categories';
 import Products from '../../components/Products';
-import { Container, Header, InputText, Right, Text, Title } from './style';
-
-// import { Container } from './styles';
-
-
+import {Container, Header, InputText, Right, Text, Title} from './style';
 
 const Dashboard: React.FC = () => {
-    const [value, setValue] = useState('');
-    const [text, onChangeText] = useState('');
+  const [category, setCategory] = useState(null);
+  const [search, setSearch] = useState(null);
+  console.log(category);
+
   return (
-      <Container>
-          <Title>Food App</Title>
-        <Header>
-            <InputText
-              onChangeText={onChangeText}
-              value={text}
-              placeholder={'Buscar...'}
-            />
-            
-            <Right>
-              <ShoppingCart/>
-            </Right>
-          </Header>
-          <Text>Categorias</Text>
-          <Categories/>
-          <Text>Produtos</Text>
-          <Products/>
-      </Container>
-  )
-}
+    <Container>
+      <Title>Food App</Title>
+      <Header>
+        <InputText
+          // onChangeText={onChangeText}
+          value={search}
+          onChangeText={value => setSearch(value)}
+          placeholder={'Buscar...'}
+        />
+        {/* {console.log(search)} */}
+        <Right>
+          <ShoppingCart />
+        </Right>
+      </Header>
+      <Text>Categorias</Text>
+      <Categories onPress={value => setCategory(value)} />
+      <Text>Produtos</Text>
+      <Products category={category} search={search} />
+    </Container>
+  );
+};
 
 export default Dashboard;
