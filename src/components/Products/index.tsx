@@ -39,7 +39,7 @@ const Products: React.FC<ProductsProps> = props => {
             <Content>
               <TouchableOpacity
                 onPress={() => {
-                  console.log(item);
+                  // console.log(item);
                   navigation.navigate('Details', {
                     name: item.name,
                     image: item.image,
