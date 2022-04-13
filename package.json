@@ -24,7 +24,8 @@
     "react-native-svg": "^12.3.0",
     "styled-component": "^2.8.0",
     "styled-components": "^5.3.5",
-    "types": "^0.1.1"
+    "types": "^0.1.1",
+    "zustand": "^3.7.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
