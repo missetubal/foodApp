@@ -8,7 +8,6 @@ import {CategoriesProps} from './types';
 
 const Categories: React.FC<CategoriesProps> = props => {
   const [info, setInfo] = useState([]);
-  const [category, setCategory] = useState('');
 
   useEffect(() => {
     api

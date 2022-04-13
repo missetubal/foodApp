@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React, {useState} from 'react';
 import ShoppingCart from '../../assets/shopping_cart';
 import Categories from '../../components/Categories';
@@ -7,7 +8,8 @@ import {Container, Header, InputText, Right, Text, Title} from './style';
 const Dashboard: React.FC = () => {
   const [category, setCategory] = useState(null);
   const [search, setSearch] = useState(null);
-  console.log(category);
+  const navigation = useNavigation();
+  // console.log(category);
 
   return (
     <Container>
@@ -19,8 +21,10 @@ const Dashboard: React.FC = () => {
           onChangeText={value => setSearch(value)}
           placeholder={'Buscar...'}
         />
-        {/* {console.log(search)} */}
-        <Right>
+        <Right
+          onPress={() => {
+            navigation.navigate('Cart');
+          }}>
           <ShoppingCart />
         </Right>
       </Header>

@@ -4,6 +4,7 @@ import {FlatList} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 import Favorite from '../../assets/favorite';
 import api from '../../service/api';
+
 import {
   Container,
   Content,
@@ -45,6 +46,7 @@ const Products: React.FC<ProductsProps> = props => {
                     image: item.image,
                     description: item.description,
                     price: item.price,
+                    id: item.id,
                   });
                 }}>
                 <Image source={{uri: formatUrl(item.image)}} />

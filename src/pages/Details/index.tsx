@@ -18,6 +18,7 @@ import {
   TextButton,
   Heart,
 } from './style';
+import {itemCartStore} from '../../components/zustore';
 import Favorite from '../../assets/favorite';
 
 const Details: React.FC = ({route}) => {
@@ -27,15 +28,39 @@ const Details: React.FC = ({route}) => {
 
   const [amount, setAmount] = useState(0);
   const item = route.params;
+  // console.log(item);
+
+  const itensList = itemCartStore(state => state.cardItens);
+  const addItem = itemCartStore(state => state.addItem);
+  console.log(itensList);
+  // const removeItem = itemCartStore(state => state.removeItem);
+  // const updateItem = itemCartStore(state => state.updateItem);
+
+  // const handleNewItem = infoList => {
+  //   // if (infoList.id) {
+  //   //   updateItem({
+  //   //     price: infoList.price,
+  //   //     amount: infoList.amount,
+  //   //   });
+  //   // } else {
+  //   addItem({
+  //     name: infoList.name,
+  //     description: infoList.description,
+  //     image: infoList.image,
+  //     price: infoList.price,
+  //     amount: infoList.amount,
+  //     id: infoList.id,
+  //   });
+  // };
 
   //Hoje eu consigo salvar vários pedidos de itens iguais, mas quando vou pra outro produto
   //essa listagem zera, como salvar isso globalmente?
-  const [productInfo, setProductInfo] = useState([]);
-  const setInfo = cartItem => {
-    const helper = cartItem;
-    setProductInfo([...productInfo, helper]);
-  };
-  console.log(productInfo);
+  // const [productInfo, setProductInfo] = useState([]);
+  // const setInfo = cartItem => {
+  //   const helper = cartItem;
+  //   setProductInfo([...productInfo, helper]);
+  // };
+  // console.log(productInfo);
 
   return (
     <View>
@@ -80,9 +105,9 @@ const Details: React.FC = ({route}) => {
               ...item,
               amount: amount,
             };
-            setInfo(cartItem);
+            addItem(cartItem);
             navigation.navigate('Cart', {
-              item: cartItem,
+              item: itensList,
             });
           }
         }}>
