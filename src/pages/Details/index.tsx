@@ -18,9 +18,8 @@ import {
   TextButton,
   Heart,
 } from './style';
+import {itemCartStore} from '../../components/zustore';
 import Favorite from '../../assets/favorite';
-
-// import { Container } from './styles';
 
 const Details: React.FC = ({route}) => {
   const formatUrl = (url: String) => url.replace('http', 'https');
@@ -28,7 +27,40 @@ const Details: React.FC = ({route}) => {
   const navigation = useNavigation();
 
   const [amount, setAmount] = useState(0);
-  // const [isVisible, setVisible] = useState(false);
+  const item = route.params;
+  // console.log(item);
+
+  const itensList = itemCartStore(state => state.cardItens);
+  const addItem = itemCartStore(state => state.addItem);
+  console.log(itensList);
+  // const removeItem = itemCartStore(state => state.removeItem);
+  // const updateItem = itemCartStore(state => state.updateItem);
+
+  // const handleNewItem = infoList => {
+  //   // if (infoList.id) {
+  //   //   updateItem({
+  //   //     price: infoList.price,
+  //   //     amount: infoList.amount,
+  //   //   });
+  //   // } else {
+  //   addItem({
+  //     name: infoList.name,
+  //     description: infoList.description,
+  //     image: infoList.image,
+  //     price: infoList.price,
+  //     amount: infoList.amount,
+  //     id: infoList.id,
+  //   });
+  // };
+
+  //Hoje eu consigo salvar vários pedidos de itens iguais, mas quando vou pra outro produto
+  //essa listagem zera, como salvar isso globalmente?
+  // const [productInfo, setProductInfo] = useState([]);
+  // const setInfo = cartItem => {
+  //   const helper = cartItem;
+  //   setProductInfo([...productInfo, helper]);
+  // };
+  // console.log(productInfo);
 
   return (
     <View>
@@ -36,22 +68,24 @@ const Details: React.FC = ({route}) => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <LeftArrow />
         </TouchableOpacity>
-        <Text>{route.params.name}</Text>
+        <Text>{item.name}</Text>
         <Heart>
           <Favorite />
         </Heart>
       </Header>
-      <Image source={{uri: formatUrl(route.params.image)}} />
-      <Text style={{marginBottom: 10}}>{route.params.description}</Text>
+      <Image source={{uri: formatUrl(item.image)}} />
+      <Text style={{marginBottom: 20}}>{item.description}</Text>
       <AddItens>
         <Left>
           <Text>Total</Text>
-          <Text>R$ {formatPrice(route.params.price)}</Text>
+          <Text>R$ {formatPrice(item.price)}</Text>
         </Left>
         <Right>
           <Button
             onPress={() => {
-              setAmount(amount - 1);
+              if (amount > 0) {
+                setAmount(amount - 1);
+              }
             }}>
             <Less />
           </Button>
@@ -64,7 +98,19 @@ const Details: React.FC = ({route}) => {
           </Button>
         </Right>
       </AddItens>
-      <AddToCart>
+      <AddToCart
+        onPress={() => {
+          if (amount > 0) {
+            const cartItem = {
+              ...item,
+              amount: amount,
+            };
+            addItem(cartItem);
+            navigation.navigate('Cart', {
+              item: itensList,
+            });
+          }
+        }}>
         <TextButton>Adicionar ao carrinho</TextButton>
       </AddToCart>
     </View>

@@ -31,7 +31,7 @@ export const Text = styled.Text`
 export const Right = styled.View``;
 
 export const Left = styled.TouchableOpacity`
-  margin-right: 15px;
+  margin-right: 10px;
 `;
 
 export const InfoContent = styled.View`

@@ -6,7 +6,7 @@ export const View = styled.View`
 
 export const Header = styled.View`
   flex-direction: row;
-  margin-top: 75px;
+  margin-top: 55px;
   align-items: center;
 `;
 
